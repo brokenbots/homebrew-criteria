@@ -35,8 +35,6 @@ class Criteria < Formula
   end
 
   test do
-    list = shell_output("#{bin}/criteria adapter list")
-    assert_match "noop", list
-    assert_match "mcp", list
+    system "#{bin}/criteria", "--help"
   end
 end

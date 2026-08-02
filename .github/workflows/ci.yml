@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  tap-formula:
+    name: Formula syntax, audit and test
+    runs-on: macos-latest
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+    steps:
+      - uses: actions/checkout@v7.0.0
+
+      - name: Check Ruby syntax
+        run: ruby -c Formula/criteria.rb
+
+      - name: Register local tap and audit formula
+        run: |
+          set -euo pipefail
+          tap_dir="$(brew --repo brokenbots/criteria)"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -s "$PWD" "$tap_dir"
+          brew audit --online brokenbots/criteria/criteria
+
+      - name: Install and test formula
+        run: |
+          set -euo pipefail
+          brew install brokenbots/criteria/criteria
+          brew test brokenbots/criteria/criteria
