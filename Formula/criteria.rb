@@ -5,19 +5,19 @@ class Criteria < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/brokenbots/criteria/releases/download/v0.5.37/criteria-v0.5.37-darwin-arm64.tar.gz"
-      sha256 "c3a52af980f339620ba29dc558c3c95628267726e01a9742468385ddc4cbff79"
+      url "https://github.com/brokenbots/criteria/releases/download/v0.5.38/criteria-v0.5.38-darwin-arm64.tar.gz"
+      sha256 "f60de3bb48707886d411f630c1c24dfdff9ba3fdf2e3db5e16f629cbfeb102b4"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/brokenbots/criteria/releases/download/v0.5.37/criteria-v0.5.37-linux-amd64.tar.gz"
-      sha256 "cd6620b1aa008e814d6a27c2fec79497a37bb24d83cf2e6e47d77e1dda7742e4"
+      url "https://github.com/brokenbots/criteria/releases/download/v0.5.38/criteria-v0.5.38-linux-amd64.tar.gz"
+      sha256 "432e667cab9fade5e871455b84bb45d33df7a8e369c155b8339dd49267e2bf42"
     end
     on_arm do
-      url "https://github.com/brokenbots/criteria/releases/download/v0.5.37/criteria-v0.5.37-linux-arm64.tar.gz"
-      sha256 "d37a81fb2d9f808a889fa557ab518a52ee1e5108931b28e1423560e106591581"
+      url "https://github.com/brokenbots/criteria/releases/download/v0.5.38/criteria-v0.5.38-linux-arm64.tar.gz"
+      sha256 "e50b942076c2ab37fec6dad057e5c86db9b02239033208705d5a6ab3f476c819"
     end
   end
 
